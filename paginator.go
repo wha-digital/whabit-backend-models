@@ -1,4 +1,4 @@
-package paginator
+package models
 
 import (
 	"encoding/json"

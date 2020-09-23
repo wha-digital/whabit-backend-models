@@ -1,0 +1,1 @@
+helper model for using any project

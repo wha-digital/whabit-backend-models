@@ -4,7 +4,9 @@ import (
 	"database/sql/driver"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"fmt"
+	"strings"
 
 	"github.com/globalsign/mgo/bson"
 	"github.com/gofrs/uuid"
@@ -92,6 +94,19 @@ func (zu ZeroUUID) MarshalJSON() ([]byte, error) {
 		return json.Marshal("")
 	}
 	return json.Marshal(uuid.UUID(zu).String())
+}
+
+func (zu ZeroUUID) UnmarshalJSON(b []byte) error {
+	s := strings.Trim(string(b), "\"")
+	if s == "" {
+		return nil
+	}
+	_, err := uuid.FromString(s)
+	if err != nil {
+		return errors.New("invalid format uuid")
+	}
+
+	return nil
 }
 
 func (zu ZeroUUID) String() string {

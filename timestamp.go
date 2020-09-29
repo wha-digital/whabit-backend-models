@@ -36,7 +36,7 @@ func NewTimestampFromString(dateString string) Timestamp {
 
 func NewTimestampFromTime(t time.Time) Timestamp {
 	loc, _ := tz.LoadLocation("Asia/Bangkok")
-	d, err := time.ParseInLocation(TimestampLayout, t.Format(TimestampLayout), loc)
+	d, err := time.ParseInLocation(TimestampLayout, t.UTC().Format(TimestampLayout), loc)
 	if err != nil {
 		log.Fatal(err)
 	}

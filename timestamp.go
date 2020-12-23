@@ -113,3 +113,7 @@ func (j Timestamp) ValueOrZero() string {
 	}
 	return j.String()
 }
+
+func (j Timestamp) ToTime() time.Time {
+	return time.Time(j)
+}

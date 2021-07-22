@@ -3,7 +3,6 @@ package models
 import (
 	"database/sql/driver"
 	"encoding/json"
-	"log"
 	"strings"
 	"time"
 
@@ -29,7 +28,7 @@ func NewTimestampFromString(dateString string) Timestamp {
 	loc, _ := tz.LoadLocation("Asia/Bangkok")
 	d, err := time.ParseInLocation(TimestampLayout, dateString, loc)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	return Timestamp(d)
 }
@@ -38,7 +37,7 @@ func NewTimestampFromTime(t time.Time) Timestamp {
 	loc := time.FixedZone("UTC+7", 7*60*60)
 	d, err := time.Parse(TimestampLayout, t.UTC().Format(TimestampLayout))
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	d = d.In(loc)
 	return Timestamp(d)

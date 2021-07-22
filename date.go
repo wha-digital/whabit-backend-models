@@ -2,7 +2,6 @@ package models
 
 import (
 	"encoding/json"
-	"log"
 	"strings"
 	"time"
 
@@ -25,7 +24,7 @@ func NewDateFromString(dateString string) Date {
 	loc, _ := tz.LoadLocation("Asia/Bangkok")
 	d, err := time.ParseInLocation(DateLayout, dateString, loc)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	return Date(d)
 }
@@ -34,7 +33,7 @@ func NewDateFromStringWithTime(dateString string) Date {
 	loc, _ := tz.LoadLocation("Asia/Bangkok")
 	d, err := time.ParseInLocation(TimestampLayout, dateString, loc)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	return Date(d)
 }
@@ -43,7 +42,7 @@ func NewDateFromTime(t time.Time) Date {
 	loc, _ := tz.LoadLocation("Asia/Bangkok")
 	d, err := time.ParseInLocation(DateLayout, t.Format(DateLayout), loc)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	return Date(d)
 }

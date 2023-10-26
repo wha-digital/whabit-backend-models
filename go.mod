@@ -1,4 +1,4 @@
-module git.innovasive.co.th/backend/models
+module gitlab.whabitofficial.com/backend/models
 
 go 1.12
 

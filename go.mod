@@ -1,4 +1,4 @@
-module gitlab.whabitofficial.com/backend/models
+module github.com/wha-digital/whabit-backend-models
 
 go 1.24.5
 

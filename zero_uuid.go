@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/globalsign/mgo/bson"
-	"github.com/gofrs/uuid"
+	"github.com/gofrs/uuid/v5"
 )
 
 var (
@@ -167,7 +167,8 @@ func (zu *ZeroUUID) UnmarshalText(text []byte) error {
 }
 
 // decodeHashLike decodes UUID strings that are using the following format:
-//  "6ba7b8109dad11d180b400c04fd430c8".
+//
+//	"6ba7b8109dad11d180b400c04fd430c8".
 func (u *ZeroUUID) decodeHashLike(t []byte) error {
 	src := t[:]
 	dst := u[:]

@@ -3,7 +3,7 @@ package models
 import (
 	"database/sql/driver"
 
-	"github.com/gofrs/uuid"
+	"github.com/gofrs/uuid/v5"
 )
 
 type NullUUID struct {
